@@ -7,7 +7,9 @@ const bodyParser = require('body-parser');
 app.use(cors())
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://swadeshsandesh:2t9Z4PmygBU41RYV@clusterssn.rasxlii.mongodb.net/?retryWrites=true&w=majority&appName=ClusterSSN', { useNewUrlParser: true, useUnifiedTopology: true })
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB', err));
 
